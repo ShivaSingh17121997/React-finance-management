@@ -67,7 +67,7 @@ export default function Dashboard() {
         setShowModal(false);
     };
 
-    // Derived metrics from transactions (dynamic)
+    // metrics from transactions (dynamically)
     const formatINR = (value) =>
         new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(
             isNaN(value) ? 0 : value
@@ -143,9 +143,8 @@ export default function Dashboard() {
 
     return (
         <div className="w-full px-4 md:px-6 flex flex-col gap-6 min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 relative">
-            {/*  Add Transaction Button */}
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                {/* Header */}
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-start gap-4">
+
 
                 <div>
                     <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600">

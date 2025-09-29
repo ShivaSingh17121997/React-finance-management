@@ -5,6 +5,7 @@ import Analytics from '../pages/Analytics'
 import Signup from '../pages/auth/Signup'
 import Login from '../pages/auth/Login'
 import { toast } from 'react-toastify'
+import Counter from '../pages/Counter'
 
 export default function AllRoutes() {
     const PrivateRoute = ({ children }) => {
@@ -23,6 +24,9 @@ export default function AllRoutes() {
                 <Route path='/analytics' element={<PrivateRoute><Analytics /></PrivateRoute>} ></Route>
                 <Route path='/auth/signup' element={<Signup />} ></Route>
                 <Route path='/auth/login' element={<Login />} ></Route>
+                <Route path='/counter' element={<Counter />} ></Route>
+
+
             </Routes>
         </div>
     )
