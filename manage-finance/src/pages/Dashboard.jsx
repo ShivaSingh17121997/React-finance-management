@@ -142,8 +142,8 @@ export default function Dashboard() {
     ];
 
     return (
-        <div className="w-full px-4 md:px-6 flex flex-col gap-6 min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 relative">
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-start gap-4">
+        <div className="w-full px-4 md:px-6 flex flex-col gap-4 md:gap-6 min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 relative">
+            <div className="flex flex-col md:flex-row items-between md:items-center justify-between gap-4 pt-4 md:pt-0">
 
 
                 <div>
@@ -161,23 +161,20 @@ export default function Dashboard() {
                         <PlusCircle size={16} /> Add Transaction
                     </button>
                 </div>
-
-
-
             </div>
 
 
             {/* Summary Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
                 {summary.map((item, index) => (
                     <div
                         key={index}
-                        className={`relative overflow-hidden rounded-2xl p-5 text-white shadow-xl bg-gradient-to-br ${cardGradients[index % cardGradients.length]}`}
+                        className={`relative overflow-hidden rounded-2xl p-4 md:p-5 text-white shadow-xl bg-gradient-to-br ${cardGradients[index % cardGradients.length]}`}
                     >
                         <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_20%_20%,white,transparent_30%),radial-gradient(circle_at_80%_0%,white,transparent_20%)]" />
                         <div className="relative z-10 flex flex-col">
                             <p className="text-white/80 text-xs mb-1">{item.title}</p>
-                            <h2 className="text-2xl font-extrabold drop-shadow-sm">{item.value}</h2>
+                            <h2 className="text-lg md:text-2xl font-extrabold drop-shadow-sm">{item.value}</h2>
                         </div>
                     </div>
                 ))}
@@ -220,11 +217,11 @@ export default function Dashboard() {
 
 
             {/* Charts Section */}
-            <div className="flex flex-col md:flex-row gap-6">
+            <div className="flex flex-col lg:flex-row gap-4 md:gap-6">
                 {/* Expense Breakdown */}
-                <div className="w-full md:w-1/3 shadow-lg bg-white/80 backdrop-blur rounded-2xl p-5 border border-white/60">
+                <div className="w-full lg:w-1/3 shadow-lg bg-white/80 backdrop-blur rounded-2xl p-4 md:p-5 border border-white/60">
                     <h2 className="text-base font-semibold mb-3 text-slate-800">Expense Breakdown</h2>
-                    <ResponsiveContainer width="100%" height={280}>
+                    <ResponsiveContainer width="100%" height={250}>
                         <PieChart>
                             <defs>
                                 {COLORS.map((color, i) => (
@@ -255,9 +252,9 @@ export default function Dashboard() {
 
 
                 {/* Income vs Expense Chart */}
-                <div className="w-full md:w-2/3 shadow-lg bg-white/80 backdrop-blur rounded-2xl p-5 border border-white/60">
+                <div className="w-full lg:w-2/3 shadow-lg bg-white/80 backdrop-blur rounded-2xl p-4 md:p-5 border border-white/60">
                     <h2 className="text-base font-semibold mb-3 text-slate-800">Income vs Expense</h2>
-                    <ResponsiveContainer width="100%" height={280}>
+                    <ResponsiveContainer width="100%" height={250}>
                         <BarChart data={trendData}>
                             <defs>
                                 <linearGradient id="incomeGrad" x1="0" y1="0" x2="0" y2="1">
@@ -283,8 +280,8 @@ export default function Dashboard() {
 
             {/* Modal */}
             {showModal && (
-                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
-                    <div className="bg-white rounded-2xl p-6 w-full max-w-md shadow-lg relative">
+                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+                    <div className="bg-white rounded-2xl p-6 w-full max-w-md shadow-lg relative max-h-[90vh] overflow-y-auto">
                         <h2 className="text-lg font-semibold mb-4">Add Transaction</h2>
                         <div className="flex flex-col gap-3">
                             {/* Type Selector */}

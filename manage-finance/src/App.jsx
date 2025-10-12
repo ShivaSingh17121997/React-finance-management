@@ -25,7 +25,7 @@ function App() {
   }, [])
 
   return (
-    <div className={hasToken ? "min-h-screen pl-64" : "min-h-screen"}>
+    <div className={hasToken ? "min-h-screen lg:pl-64 pt-16 lg:pt-0" : "min-h-screen"}>
       <AllRoutes />
       {hasToken && (location !== "/auth/login" || location !== "/auth/signup") &&  <Navbar />}
 

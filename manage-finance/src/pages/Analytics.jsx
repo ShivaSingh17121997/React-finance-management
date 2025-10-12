@@ -139,7 +139,7 @@ export default function Analytics() {
   };
 
   return (
-    <div className="w-full p-6 min-h-screen bg-gray-50 flex flex-col gap-6">
+    <div className="w-full px-4 md:px-6 py-6 min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 flex flex-col gap-6">
       {/* Header */}
       <div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-800">Analytics</h1>
@@ -149,11 +149,11 @@ export default function Analytics() {
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex gap-4">
+      <div className="flex flex-wrap gap-2 md:gap-4">
         {["Daily", "Weekly", "Monthly", "Yearly"].map((f) => (
           <button
             key={f}
-            className={`px-4 py-2 rounded-lg font-medium transition ${
+            className={`px-3 md:px-4 py-2 rounded-lg font-medium transition text-sm md:text-base ${
               filter === f
                 ? "bg-indigo-500 text-white"
                 : "bg-white text-gray-700 hover:bg-gray-100"
@@ -195,7 +195,7 @@ export default function Analytics() {
 
       {/* Category Expense List */}
       {expenseData.length > 0 && (
-        <div className="shadow-md bg-white rounded-2xl p-5 md:w-1/2">
+        <div className="shadow-md bg-white rounded-2xl p-5 w-full md:w-1/2">
           <h2 className="text-lg font-semibold mb-3 text-gray-800">Expense by Category</h2>
           <ul className="divide-y divide-gray-200">
             {expenseData.map((cat, idx) => (
@@ -204,8 +204,8 @@ export default function Analytics() {
                 className="flex justify-between py-2 px-3 cursor-pointer hover:bg-gray-100 rounded-md"
                 onClick={() => handleCategoryClick(cat.name)}
               >
-                <span>{cat.name}</span>
-                <span>
+                <span className="text-sm md:text-base">{cat.name}</span>
+                <span className="text-sm md:text-base">
                   ₹{cat.value} ({cat.percent}%)
                 </span>
               </li>
